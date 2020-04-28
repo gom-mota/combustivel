@@ -67,11 +67,14 @@ class _HomeState extends State<Home> {
                     textAlign: TextAlign.center,
                     style: TextStyle(color: Colors.red, fontSize: 20.0),
                     validator: (value) {
-                      
+                      RegExp validarDouble =
+                          new RegExp(r'^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$');
                       if (value.isEmpty) {
                         return "Informe o preço da Gasolina!";
                       }     
-                                        
+                      if (validarDouble.hasMatch(value) == false) {
+                        return "Valor inválido!";
+                      }                  
                     },
                   ),
                   TextFormField(
@@ -83,11 +86,14 @@ class _HomeState extends State<Home> {
                     textAlign: TextAlign.center,
                     style: TextStyle(color: Colors.red, fontSize: 20.0),
                     validator: (value) {          
-                                  
+                      RegExp validarDouble =
+                          new RegExp(r'^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$');            
                       if (value.isEmpty) {
                         return "Informe o preço do Etanol!";
                       }          
-                                  
+                      if (validarDouble.hasMatch(value) == false) {
+                        return "Valor inválido!";
+                      }            
                     },
                   ),
                   Padding(
